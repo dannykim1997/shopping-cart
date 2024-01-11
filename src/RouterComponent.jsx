@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import HomePage from "./home/HomePage";
-import ShopPage from "./shop/ShopPage";
-import Cart from "./cart/Cart";
+import HomePage from "./component/home/HomePage";
+import ShopPage from "./components/shop/ShopPage";
+import Cart from "./components/cart/Cart";
 
-const Router = () => {
+const RouterComponent = () => {
     const router = createBrowserRouter([
         {
             path: '/',
@@ -19,7 +19,9 @@ const Router = () => {
         },
     ]);
 
-    return <RouterProvider router={router} />;
+    return (
+        <RouterProvider router={router} />
+    );
 }
 
-export default Router
+export default RouterComponent

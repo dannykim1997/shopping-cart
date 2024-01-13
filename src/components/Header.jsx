@@ -1,8 +1,9 @@
+import '../App.css';
 
 const Header = () => {
     return (
-        <div>
-            Header
+        <div className="header">
+            Cool Shop
         </div>
     );
 }

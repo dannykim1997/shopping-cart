@@ -8,7 +8,7 @@ import RouterComponent from './RouterComponent';
 function App() {
   return (
     <Router>
-      <div>
+      <div className='app-container'>
         <Header />
         <NavBar />
         <RouterComponent />

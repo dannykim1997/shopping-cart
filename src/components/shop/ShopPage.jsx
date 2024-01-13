@@ -2,7 +2,14 @@
 const ShopPage = () => {
     return (
         <div>
-            ShopPage Here
+            <p>B</p>
+            <p>B</p>
+            <p>B</p>
+            <p>B</p>
+            <p>B</p>
+            <p>B</p>
+            <p>B</p>
+            <p>B</p>
         </div>
     ); 
 }

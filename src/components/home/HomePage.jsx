@@ -2,7 +2,12 @@
 const HomePage = () => {
     return (
         <div>
-            HomePage Here
+            <p>A</p>
+            <p>A</p>
+            <p>A</p>
+            <p>A</p>
+            <p>A</p>
+            <p>A</p>
         </div>
     ); 
 }

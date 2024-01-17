@@ -3,12 +3,7 @@ const HomePage = () => {
 
     return (
         <div>
-            <p>A</p>
-            <p>A</p>
-            <p>A</p>
-            <p>A</p>
-            <p>A</p>
-            <p>A</p>
+            <p>Shopaholic is a one stop shop for all your shopping needs</p>
         </div>
     ); 
 }

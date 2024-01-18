@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Card, CardContent, CardMedia, Typography, Grid, Button } from "@mui/material";
+import { Card, CardContent, CardMedia, Typography, Grid, Button, TextField } from "@mui/material";
+import { PropTypes } from 'prop-types';
 
-const ShopPage = () => {
+const ShopPage = ({setCart, quantities, updateQuantity}) => {
     const [products, setProducts] = useState([]);
     const [showDetails, setShowDetails] = useState([]);
 
@@ -21,6 +22,21 @@ const ShopPage = () => {
           return newShowDetails;
         });
     };
+
+    const addToCart = (index) => {
+        const selectedProduct = products[index];
+        const quantity = quantities[selectedProduct.id] || 1;
+
+        const cartItem = {
+            id: selectedProduct.id,
+            title: selectedProduct.title,
+            image: selectedProduct.image,
+            price: selectedProduct.price,
+            quantity: quantity,
+        };
+
+        setCart((prevCart) => [...prevCart, cartItem]);
+    }
 
     return (
         <div>
@@ -67,12 +83,31 @@ const ShopPage = () => {
                             <Button onClick={() => toggleDetails(index)} sx={{ marginTop: 'auto' }}>
                                 {showDetails[index] ? 'Show Less' : 'Show More'}
                             </Button>
+                            <TextField
+                                type="number"
+                                label="Quantity"
+                                value={quantities[product.id] || 1}
+                                onChange={(e) => {
+                                    const value = parseInt(e.target.value, 10);
+                                    const newQuantity = isNaN(value) ? 1 : Math.min(Math.max(value, 1), 10);
+                                    updateQuantity(product.id, newQuantity);
+                                }}
+                            />
+                            <Button onClick={() => addToCart(index)}>
+                                Add to Cart
+                            </Button>
                         </Card>
                     </Grid>
                 ))}
             </Grid>
         </div>
     ); 
+}
+
+ShopPage.propTypes = {
+    setCart: PropTypes.func.isRequired,
+    quantities: PropTypes.array.isRequired,
+    updateQuantity: PropTypes.func.isRequired,
 }
 
 export default ShopPage

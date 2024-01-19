@@ -83,12 +83,12 @@ const ShopPage = ({setCart, quantities, updateQuantity}) => {
                                             Category: {product.category}
                                         </Typography>
                                         <Typography variant="body2" color="text.secondary">
-                                            Price: ${product.price}
+                                            Price: ${(product.price).toFixed(2)}
                                         </Typography>
                                     </>
                                 )}
                             </CardContent>
-                            <Button onClick={() => toggleDetails(index)} >
+                            <Button onClick={() => toggleDetails(index)} sx={{color: 'grey'}}>
                                 {showDetails[index] ? 'Show Less' : 'Show More'}
                             </Button>
                             <TextField
@@ -97,11 +97,11 @@ const ShopPage = ({setCart, quantities, updateQuantity}) => {
                                 value={quantities[product.id] || 1}
                                 onChange={(e) => {
                                     const value = parseInt(e.target.value, 10);
-                                    const newQuantity = isNaN(value) ? 1 : Math.min(Math.max(value, 1), 10);
+                                    const newQuantity = isNaN(value) ? 1 : Math.max(value, 1);
                                     updateQuantity(product.id, newQuantity);
                                 }}
                             />
-                            <Button onClick={() => addToCart(index)}>
+                            <Button onClick={() => addToCart(index)} sx={{color: 'orange'}}>
                                 Add to Cart
                             </Button>
                         </Card>

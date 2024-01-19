@@ -15,25 +15,28 @@ const CartPage = ({ cart, setCart }) => {
   };
 
   return (
-    <div>
-        <Typography variant="h4" align="center" gutterBottom>
-            Shopping Cart
-        </Typography>
-        {cart.map((cartItem, index) => (
-            <div key={index} style={{ borderBottom: '1px solid #ccc', marginBottom: '10px', padding: '10px', display: 'flex', alignItems: 'center' }}>
-                <img src={cartItem.image} alt={cartItem.title} style={{ maxWidth: '100px', marginRight: '20px' }}/>
-                <div>
-                    <Typography variant="h6">{cartItem.title}</Typography>
-                    <Typography variant="body2">Price: ${cartItem.price}</Typography>
-                    <Typography variant="body2">Quantity: {cartItem.quantity}</Typography>
-                    <Button onClick={() => handleQuantityChange(index, cartItem.quantity + 1)}>Increase Quantity</Button>
-                    <Button onClick={() => handleQuantityChange(index, cartItem.quantity - 1)} disabled={cartItem.quantity === 1}>
-                    Decrease Quantity
-                    </Button>
-                    <Button onClick={() => handleRemoveItem(index)}>Remove Item</Button>
+    <div style={{marginTop: '2rem'}}>
+        {cart.length === 0 ? (
+            <Typography variant='body1'>
+                Your cart is empty.
+            </Typography>
+        ): (
+            cart.map((cartItem, index) => (
+                <div key={index} style={{ borderBottom: '1px solid #ccc', marginBottom: '10px', padding: '10px', display: 'flex', alignItems: 'center' }}>
+                    <img src={cartItem.image} alt={cartItem.title} style={{ maxWidth: '100px', marginRight: '20px' }}/>
+                    <div>
+                        <Typography variant="h6">{cartItem.title}</Typography>
+                        <Typography variant="body2">Price: ${cartItem.price}</Typography>
+                        <Typography variant="body2">Quantity: {cartItem.quantity}</Typography>
+                        <Button onClick={() => handleQuantityChange(index, cartItem.quantity + 1)}>Increase Quantity</Button>
+                        <Button onClick={() => handleQuantityChange(index, cartItem.quantity - 1)} disabled={cartItem.quantity === 1}>
+                        Decrease Quantity
+                        </Button>
+                        <Button onClick={() => handleRemoveItem(index)}>Remove Item</Button>
+                    </div>
                 </div>
-            </div>
-        ))}
+            ))
+        )}
     </div>
   )
 };

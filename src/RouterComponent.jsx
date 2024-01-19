@@ -8,7 +8,7 @@ const RouterComponent = ({cart, setCart, quantities, updateQuantity}) => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/shop" element={<ShopPage setCart={setCart} quantities={quantities} updateQuantity={updateQuantity} />} />
+      <Route path="/shop" element={<ShopPage cart={cart} setCart={setCart} quantities={quantities} updateQuantity={updateQuantity} />} />
       <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} />} />
     </Routes>
   );

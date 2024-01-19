@@ -14,12 +14,3 @@ body {
   height: 100vh;
   text-align: center;
 }
-
-/* .header {
-  text-align: center;
-} */
-
-.navbar {
-  display: flex;
-  justify-content: space-around;
-}

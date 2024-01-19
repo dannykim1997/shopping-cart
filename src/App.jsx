@@ -21,7 +21,7 @@ function App() {
     <Router>
       <div className='app-container'>
         <Header />
-        <NavBar />
+        <NavBar cart={cart}/>
         <RouterComponent cart={cart} setCart={setCart} quantities={quantities} setQuantities={setQuantities} updateQuantity={updateQuantity} />
         <Footer />
       </div>

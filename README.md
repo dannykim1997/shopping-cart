@@ -1,3 +1,5 @@
+Live Preview: https://shopping-cart-peach-six.vercel.app/
+
 Shopaholic is a react based webapp styled with MaterialUI.
 
 Items are fetched from https://fakestoreapi.com/
